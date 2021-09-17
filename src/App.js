@@ -2,14 +2,27 @@ import React from 'react';
 import Home from './Home';
 import Header from './Header';
 import Footer from './Footer';
+import SearchPage from './SearchPage.js';
+
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 export default function App() {
     return (
         <div className="app">
-            {/* <h1>Airbnb clone</h1> */}
-            <Header />
-            <Home />
-            <Footer />
+            <Router>
+                <Header />
+
+                    <Switch>
+                        <Route path="/search">
+                            <SearchPage />
+                        </Route>
+                        <Route path="/">
+                            <Home />
+                        </Route>
+                    </Switch>
+
+                <Footer />
+            </Router>
         </div>
 
         
